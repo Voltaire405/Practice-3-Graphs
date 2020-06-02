@@ -1,4 +1,5 @@
-let coordinates = [//coordenadas de las casas.
+lazoDisapear();
+let coordinates = [ //coordenadas de las casas.
     ['length', 12],
     [360, 511],
     [610, 250],
@@ -13,10 +14,22 @@ let coordinates = [//coordenadas de las casas.
     [510, 472],
     [130, 250]
 ];
+let vertex = 0;
+let sides = new Array();
+let inciMat = new Array();
 
-let sides = generateRandomSides(9);
-let inciMat = getIncidenceMatrix(sides, 9);
-lazoDisapear();
-hideHouses(9);
-renderConnection(sides, coordinates);
+document.getElementById('vertex-form').onsubmit = function () {
+    vertex = Number.parseInt(document.getElementById('vertex').value);
+    sides = generateRandomSides(vertex);
+    inciMat = getIncidenceMatrix(sides, vertex);    
+    hideHouses(vertex);
+    renderConnection(sides, coordinates);
+    document.getElementById('send-vertex').setAttribute('disabled', 'true');
+    return false;
 
+};
+
+document.getElementById('btn-clean').addEventListener("click",function(e){
+    window.location.reload(true);
+});
+//let inciMat = getIncidenceMatrix(sides, 9);

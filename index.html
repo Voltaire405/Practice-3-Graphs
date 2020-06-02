@@ -4,291 +4,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <title>Graphs Neighborhood</title>
 </head>
 
 <body>
-    <section>
-        <svg
-            style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 565px; min-height: 568px; background-color: transparent; background-image: none;">
-            <defs>
-                <filter id="dropShadow">
-                    <feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="blur"></feGaussianBlur>
-                    <feOffset in="blur" dx="3" dy="3" result="offsetBlur"></feOffset>
-                    <feFlood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor"></feFlood>
-                    <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"></feComposite>
-                    <feBlend in="SourceGraphic" in2="offsetBlur"></feBlend>
-                </filter>
-            </defs>
-            <g transformorigin="0 0" transform="scale(1,1)translate(-122,-19)">
-                <g></g>
-                <g id="board">
-                    <g style="visibility: visible;">
-                        <image x="360" y="511" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="375" y="557" width="9" height="14" stroke-width="0">
-                            </rect><text x="379.5" y="568">1</text>
+    <section class="col-md-12">
+        <div class="row">
+            <svg class="col-md-6"
+                style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 565px; min-height: 568px; background-color: transparent; background-image: none;">
+                <defs>
+                    <filter id="dropShadow">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="blur"></feGaussianBlur>
+                        <feOffset in="blur" dx="3" dy="3" result="offsetBlur"></feOffset>
+                        <feFlood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor"></feFlood>
+                        <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"></feComposite>
+                        <feBlend in="SourceGraphic" in2="offsetBlur"></feBlend>
+                    </filter>
+                </defs>
+                <g transformorigin="0 0" transform="scale(1,1)translate(-122,-19)">
+                    <g></g>
+                    <g id="board">
+                        <g style="visibility: visible;">
+                            <image x="360" y="511" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="375" y="557" width="9" height="14"
+                                    stroke-width="0">
+                                </rect><text x="379.5" y="568">1</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;" id="v10">
+                            <image x="370" y="30" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="381" y="76" width="16" height="14"
+                                    stroke-width="0">
+                                </rect><text x="389.5" y="87">10</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;" id="v12">
+                            <image x="130" y="250" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="141" y="296" width="16" height="14"
+                                    stroke-width="0">
+                                </rect><text x="149.5" y="307">12</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;">
+                            <image x="610" y="250" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="625" y="296" width="10" height="14"
+                                    stroke-width="0">
+                                </rect><text x="629.5" y="307">2</text>
+                            </g>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;">
+                            <path d="M 208 179 L 596.3 368.68" fill="none" stroke="white" pointer-events="stroke"
+                                visibility="hidden" stroke-width="9"></path>
+                            <path d="M 208 179 L 596.3 368.68" fill="none" stroke="none" pointer-events="stroke"></path>
+                            <ellipse cx="599" cy="370" rx="3" ry="3" fill="none" stroke="white" pointer-events="stroke"
+                                visibility="hidden" stroke-width="9"></ellipse>
+                            <ellipse cx="599" cy="370" rx="3" ry="3" fill="none" stroke="none" pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g style="visibility: visible;">
+                            <image x="169" y="140" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="184" y="186" width="10" height="14"
+                                    stroke-width="0">
+                                </rect><text x="188.5" y="197">5</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;" id="v11">
+                            <image x="510" y="472" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="522" y="518" width="15" height="14"
+                                    stroke-width="0">
+                                </rect><text x="529.5" y="529">11</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;">
+                            <image x="260" y="60" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="275" y="106" width="10" height="14"
+                                    stroke-width="0">
+                                </rect><text x="279.5" y="117">6</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;">
+                            <image x="490" y="60" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="505" y="106" width="10" height="14"
+                                    stroke-width="0">
+                                </rect><text x="509.5" y="117">4</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;">
+                            <image x="160" y="370" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="175" y="416" width="10" height="14"
+                                    stroke-width="0">
+                                </rect><text x="179.5" y="427">8</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;">
+                            <image x="230" y="472" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="245" y="518" width="10" height="14"
+                                    stroke-width="0">
+                                </rect><text x="249.5" y="529">3</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;">
+                            <image x="571" y="140" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="586" y="186" width="10" height="14"
+                                    stroke-width="0">
+                                </rect><text x="590.5" y="197">7</text>
+                            </g>
+                        </g>
+                        <g style="visibility: visible;" id="v9">
+                            <image x="599" y="370" width="39" height="39"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
+                                preserveAspectRatio="none"></image>
+                        </g>
+                        <g style="">
+                            <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
+                                <rect fill="#ffffff" stroke="none" x="614" y="416" width="10" height="14"
+                                    stroke-width="0">
+                                </rect><text x="618.5" y="427">9</text>
+                            </g>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="8" class="lazo">
+                            <path d="M 202 409 Q 220 409 220 389.5 Q 220 370 202 370" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 202 409 Q 220 409 220 389.5 Q 220 370 202 370" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="199" cy="409" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="199" cy="370" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="3" class="lazo">
+                            <path d="M 272 511 Q 290 511 290 491.5 Q 290 472 272 472" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 272 511 Q 290 511 290 491.5 Q 290 472 272 472" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="269" cy="511" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="269" cy="472" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="12" class="lazo">
+                            <path d="M 172 289 Q 190 289 190 269.5 Q 190 250 172 250" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 172 289 Q 190 289 190 269.5 Q 190 250 172 250" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="169" cy="289" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="169" cy="250" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="5" class="lazo">
+                            <path d="M 211 179 Q 230 179 230 159.5 Q 230 140 211 140" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 211 179 Q 230 179 230 159.5 Q 230 140 211 140" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="208" cy="179" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="208" cy="140" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="6" class="lazo">
+                            <path d="M 302 99 Q 320 99 320 79.5 Q 320 60 302 60" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 302 99 Q 320 99 320 79.5 Q 320 60 302 60" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="299" cy="99" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="299" cy="60" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: invisible;" id="10" class="lazo">
+                            <path d="M 412 69 Q 430 69 430 49.5 Q 430 30 412 30" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 412 69 Q 430 69 430 49.5 Q 430 30 412 30" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="409" cy="69" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="409" cy="30" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="4" class="lazo">
+                            <path d="M 532 99 Q 550 99 550 79.5 Q 550 60 532 60" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 532 99 Q 550 99 550 79.5 Q 550 60 532 60" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="529" cy="99" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="529" cy="60" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="7" class="lazo">
+                            <path d="M 613 179 Q 630 179 630 159.5 Q 630 140 613 140" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 613 179 Q 630 179 630 159.5 Q 630 140 613 140" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="610" cy="179" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="610" cy="140" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="2" class="lazo">
+                            <path d="M 652 289 Q 670 289 670 269.5 Q 670 250 652 250" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 652 289 Q 670 289 670 269.5 Q 670 250 652 250" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="649" cy="289" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="649" cy="250" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="9" class="lazo">
+                            <path d="M 641 409 Q 660 409 660 389.5 Q 660 370 641 370" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 641 409 Q 660 409 660 389.5 Q 660 370 641 370" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="638" cy="409" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="638" cy="370" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="11" class="lazo">
+                            <path d="M 552 511 Q 570 511 570 491.5 Q 570 472 552 472" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 552 511 Q 570 511 570 491.5 Q 570 472 552 472" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="549" cy="511" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="549" cy="472" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                        </g>
+                        <g transform="translate(0.5,0.5)" style="visibility: visible;" id="1" class="lazo">
+                            <path d="M 402 550 Q 420 550 420 530.5 Q 420 511 402 511" fill="none" stroke="white"
+                                stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9">
+                            </path>
+                            <path d="M 402 550 Q 420 550 420 530.5 Q 420 511 402 511" fill="none" stroke="#000000"
+                                stroke-miterlimit="10" pointer-events="stroke"></path>
+                            <ellipse cx="399" cy="550" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
+                            <ellipse cx="399" cy="511" rx="3" ry="3" fill="#000000" stroke="#000000"
+                                pointer-events="all">
+                            </ellipse>
                         </g>
                     </g>
-                    <g style="visibility: visible;" id="v10">
-                        <image x="370" y="30" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="381" y="76" width="16" height="14" stroke-width="0">
-                            </rect><text x="389.5" y="87">10</text>
-                        </g>
-                    </g>
-                    <g style="visibility: visible;" id="v12">
-                        <image x="130" y="250" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="141" y="296" width="16" height="14" stroke-width="0">
-                            </rect><text x="149.5" y="307">12</text>
-                        </g>
-                    </g>
-                    <g style="visibility: visible;">
-                        <image x="610" y="250" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="625" y="296" width="10" height="14" stroke-width="0">
-                            </rect><text x="629.5" y="307">2</text>
-                        </g>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;">
-                        <path d="M 208 179 L 596.3 368.68" fill="none" stroke="white" pointer-events="stroke"
-                            visibility="hidden" stroke-width="9"></path>
-                        <path d="M 208 179 L 596.3 368.68" fill="none" stroke="none" pointer-events="stroke"></path>
-                        <ellipse cx="599" cy="370" rx="3" ry="3" fill="none" stroke="white" pointer-events="stroke"
-                            visibility="hidden" stroke-width="9"></ellipse>
-                        <ellipse cx="599" cy="370" rx="3" ry="3" fill="none" stroke="none" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g style="visibility: visible;">
-                        <image x="169" y="140" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="184" y="186" width="10" height="14" stroke-width="0">
-                            </rect><text x="188.5" y="197">5</text>
-                        </g>
-                    </g>
-                    <g style="visibility: visible;" id="v11">
-                        <image x="510" y="472" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="522" y="518" width="15" height="14" stroke-width="0">
-                            </rect><text x="529.5" y="529">11</text>
-                        </g>
-                    </g>
-                    <g style="visibility: visible;">
-                        <image x="260" y="60" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="275" y="106" width="10" height="14" stroke-width="0">
-                            </rect><text x="279.5" y="117">6</text>
-                        </g>
-                    </g>
-                    <g style="visibility: visible;">
-                        <image x="490" y="60" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="505" y="106" width="10" height="14" stroke-width="0">
-                            </rect><text x="509.5" y="117">4</text>
-                        </g>
-                    </g>
-                    <g style="visibility: visible;">
-                        <image x="160" y="370" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="175" y="416" width="10" height="14" stroke-width="0">
-                            </rect><text x="179.5" y="427">8</text>
-                        </g>
-                    </g>
-                    <g style="visibility: visible;">
-                        <image x="230" y="472" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="245" y="518" width="10" height="14" stroke-width="0">
-                            </rect><text x="249.5" y="529">3</text>
-                        </g>
-                    </g>
-                    <g style="visibility: visible;">
-                        <image x="571" y="140" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="586" y="186" width="10" height="14" stroke-width="0">
-                            </rect><text x="590.5" y="197">7</text>
-                        </g>
-                    </g>
-                    <g style="visibility: visible;" id="v9">
-                        <image x="599" y="370" width="39" height="39"
-                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnCAYAAACMo1E1AAACr0lEQVRYCe2Yz08TQRTHq2cS/Q804egBzh7Q/4D/APkHDMqdiBf1VhIPcCDAjRsoidELKXdJOHrReGgbIhiUbaW7W8KQ79bvMLudNzts02JqJ3mZ6fTNzGffvB/dlpSl1et1y2z3VBzHCuLTiuiWbBsPFdz2l1g9+9SyPaeeuxHLre6fqdLi70Rm352pX60LDWQOBg739ENTgxFwcqVhBSwE1263VVZqtZqe+/ozVrvfQi37tSj5bmarG4yAE8uBoh73DsNQQfjZ1VO3xCcy+2q1mkQh5hZ2/6Ss83A1UDicIOzvvD5N5m79veK7b07V52qo94miSEHMc6QxdXOj9UWllQIZe9WBMKEq39vJVU4sN1K6AFw/iBLXI4jph9KYuteGIxT6e+VAHRye6zMQDNObaUtDD4A8UCs7BtT1hrv9shORhIOVpMh8sn0VwdSHj+JQn+YNN73Z7fg4XALj4bAWwdgDMG8d1nvBzX1M+xsOwZxvQ3JmoBBQSjXmnrlwtquhc5sb5Y3hkzZA01eze4hwMPuDtyepK8HmiMiiDXvaIlkCFOGyqSMbkb0AZiP50XrTup0IB+3xcsdyAPNxYOsJwiQBkQNzLWcrI/M7R8m1Sk8mnOs1zZuZWmuIpcxZvp6/HwRcoFMGr5G9s3zN7xz33XKuWyGktUKM4IRIheMOr+WQAh5vNJ0iVRNGa998DtWCtVLqAWFrA4XDL2UcSEHiBvA/AQfnNRuu6/+AK1K+TJ/LvlGhLPlYrm/ly4TLvlFNrfn5HPSYz7J9T+XLhLsxn7u/FKjFvbBL8LcDU4gEhzxoW4t5rO05zxHA1UtwrjU9wZUrP5Inw9O5hH5jphK8ANnWQBfC71wvSvRB66+Sofp/zrScNKY1pO/NeeqOLAer0BqmhaQxdUeWK2q5S5K23L7ZzZy4AAAAAElFTkSuQmCC"
-                            preserveAspectRatio="none"></image>
-                    </g>
-                    <g style="">
-                        <g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="12px">
-                            <rect fill="#ffffff" stroke="none" x="614" y="416" width="10" height="14" stroke-width="0">
-                            </rect><text x="618.5" y="427">9</text>
-                        </g>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="8" class="lazo">
-                        <path d="M 202 409 Q 220 409 220 389.5 Q 220 370 202 370" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 202 409 Q 220 409 220 389.5 Q 220 370 202 370" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="199" cy="409" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="199" cy="370" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="3" class="lazo">
-                        <path d="M 272 511 Q 290 511 290 491.5 Q 290 472 272 472" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 272 511 Q 290 511 290 491.5 Q 290 472 272 472" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="269" cy="511" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="269" cy="472" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="12" class="lazo">
-                        <path d="M 172 289 Q 190 289 190 269.5 Q 190 250 172 250" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 172 289 Q 190 289 190 269.5 Q 190 250 172 250" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="169" cy="289" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="169" cy="250" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="5" class="lazo">
-                        <path d="M 211 179 Q 230 179 230 159.5 Q 230 140 211 140" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 211 179 Q 230 179 230 159.5 Q 230 140 211 140" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="208" cy="179" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="208" cy="140" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="6" class="lazo">
-                        <path d="M 302 99 Q 320 99 320 79.5 Q 320 60 302 60" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 302 99 Q 320 99 320 79.5 Q 320 60 302 60" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="299" cy="99" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="299" cy="60" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: invisible;" id="10" class="lazo">
-                        <path d="M 412 69 Q 430 69 430 49.5 Q 430 30 412 30" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 412 69 Q 430 69 430 49.5 Q 430 30 412 30" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="409" cy="69" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="409" cy="30" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="4" class="lazo">
-                        <path d="M 532 99 Q 550 99 550 79.5 Q 550 60 532 60" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 532 99 Q 550 99 550 79.5 Q 550 60 532 60" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="529" cy="99" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="529" cy="60" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="7" class="lazo">
-                        <path d="M 613 179 Q 630 179 630 159.5 Q 630 140 613 140" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 613 179 Q 630 179 630 159.5 Q 630 140 613 140" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="610" cy="179" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="610" cy="140" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="2" class="lazo">
-                        <path d="M 652 289 Q 670 289 670 269.5 Q 670 250 652 250" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 652 289 Q 670 289 670 269.5 Q 670 250 652 250" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="649" cy="289" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="649" cy="250" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="9" class="lazo">
-                        <path d="M 641 409 Q 660 409 660 389.5 Q 660 370 641 370" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 641 409 Q 660 409 660 389.5 Q 660 370 641 370" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="638" cy="409" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="638" cy="370" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="11" class="lazo">
-                        <path d="M 552 511 Q 570 511 570 491.5 Q 570 472 552 472" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 552 511 Q 570 511 570 491.5 Q 570 472 552 472" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="549" cy="511" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="549" cy="472" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
-                    <g transform="translate(0.5,0.5)" style="visibility: visible;" id="1" class="lazo">
-                        <path d="M 402 550 Q 420 550 420 530.5 Q 420 511 402 511" fill="none" stroke="white"
-                            stroke-miterlimit="10" pointer-events="stroke" visibility="hidden" stroke-width="9"></path>
-                        <path d="M 402 550 Q 420 550 420 530.5 Q 420 511 402 511" fill="none" stroke="#000000"
-                            stroke-miterlimit="10" pointer-events="stroke"></path>
-                        <ellipse cx="399" cy="550" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                        <ellipse cx="399" cy="511" rx="3" ry="3" fill="#000000" stroke="#000000" pointer-events="all">
-                        </ellipse>
-                    </g>
+                    <g></g>
+                    <g></g>
                 </g>
-                <g></g>
-                <g></g>
-            </g>
-        </svg>
+            </svg>
+
+            <div class="col-md-6">
+                <form id="vertex-form">
+                    <h3>Panel de Usuario</h3>
+                    <hr>
+                    <label for="vertex">Número de vértices</label>
+                    <input type="number" id="vertex" max="12" min="8">
+                    <button type="submit" id="send-vertex" class="btn btn-sm btn-primary">Enviar</button>
+                </form>
+                <br>
+                <div id="graph-info">
+                    <!-- Insertar respuesta, es fuertemente conectado el grafo?-->
+                </div><br>
+                <form id="one-house">
+                    <label for="house">Ingrese una casa: </label>
+                    <input type="text" name="house" id="house">
+                    <button type="submit" class="btn btn-sm btn-primary" id="send-onehouse">Enviar</button>
+                </form>
+                <br>
+                <form id="two-houses">
+                    <label for="1-house">Casa 1: </label>
+                    <input type="text" name="1-house" id="1-house"><br>
+                    <label for="2-house">Casa 2: </label>
+                    <input type="text" name="2-house" id="2-house">
+                    <button type="submit" class="btn btn-sm btn-primary" id="send-twohouses">Enviar</button>
+                </form>
+                <br>
+                <button id="btn-clean" class="btn btn-danger btn-sm">Limpiar</button>
+
+            </div>
+        </div>
+        
+        <img src="vendor/img/conventions.PNG" alt="convenciones">
+
+
+
     </section>
 
     <script src="vendor/js/functions.js"></script>
