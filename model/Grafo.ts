@@ -62,7 +62,7 @@ class Grafo{
         verticesRepetidos[vertice1-1]=1;
 
         if(vertice1==vertice2){
-            trayectoria.push(vertice1);
+            console.log(trayectoria)
             trayectoriasTotales.push(trayectoria);
 
             trayectoria.pop();
@@ -83,17 +83,10 @@ class Grafo{
                 }
             }
         }
-
-    
     }
 
-    /**
-     * @param vertice1 
-     * @param vertice2 
-     * @param trayectoriasTotales 
-     * @param verticesRepetidos 
-     * @param trayectoria 
-     */
+    /*
+    
     private _calcularTrayectorias(vertice1:number, vertice2:number, trayectoriasTotales: number[][],
         verticesRepetidos:number[], trayectoria:number[]):void{
         
@@ -131,7 +124,7 @@ class Grafo{
             }
             trayectorias[i].push(simple);
         }
-    }
+    }*/
 
     /**
      * Determina si son adyacentes dos vertices ingresados como parametros
@@ -161,6 +154,11 @@ class Grafo{
         return respuesta;
     }
 
+    /**
+     * calcula el grado saliente de un vertice que recibe como parametro
+     * @param vertice vertice para el cual se que calculará el grado saiente
+     * @returns numero que representa el grado saliente del vertice
+     */
     public gradoEntrante(vertice:number):number{
         let grado: number=0;
         for(let i=1; i<=this.numeroLados(); i++){
@@ -172,6 +170,11 @@ class Grafo{
         return grado;
     }
 
+    /**
+     * calcula el grado saliente de un vertice que recibe como parametro
+     * @param vertice vertice para el cual se calculará el grado saliente
+     * @returns numero que representa el grado saliente del vertice
+     */
     public gradoSaliente(vertice:number):number{
         let grado: number=0;
         for(let i=1; i<=this.numeroLados(); i++){
@@ -183,6 +186,11 @@ class Grafo{
         return grado;
     }
 
+    /**
+     * Calcula el recorrido BFS en el grafo
+     * @returns arreglo de numeros en los que cada indice representa el vertice
+     * por el que se pasará en el recorrido
+     */
     public BFS():number[]{
         let recorrido:number[]=[];
         let cola=[];
@@ -230,6 +238,12 @@ class Grafo{
         }
 
     }
+
+    /**
+     * Calcula el recorrido DFS en el grafo
+     * @returns arreglo de numeros en el que cada indice representa cada vertice
+     * por el que se pasará en el recorrido
+     */
     public DFS():number[]{
         let vertice=3;
         let visitado= Array<number>(this.numeroVertices()).fill(0);

@@ -45,7 +45,7 @@ class Grafo {
     calcularTrayectorias(vertice1, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria) {
         verticesRepetidos[vertice1 - 1] = 1;
         if (vertice1 == vertice2) {
-            trayectoria.push(vertice1);
+            console.log(trayectoria);
             trayectoriasTotales.push(trayectoria);
             trayectoria.pop();
             verticesRepetidos[vertice1 - 1] = 0;
@@ -65,47 +65,46 @@ class Grafo {
             }
         }
     }
-    /**
-     * @param vertice1
-     * @param vertice2
-     * @param trayectoriasTotales
-     * @param verticesRepetidos
-     * @param trayectoria
-     */
-    _calcularTrayectorias(vertice1, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria) {
-        verticesRepetidos[vertice1 - 1] = 1;
-        if (vertice1 == vertice2) {
+    /*
+    
+    private _calcularTrayectorias(vertice1:number, vertice2:number, trayectoriasTotales: number[][],
+        verticesRepetidos:number[], trayectoria:number[]):void{
+        
+        verticesRepetidos[vertice1-1]=1;
+
+        if(vertice1==vertice2){
             console.log(trayectoria);
             trayectoriasTotales.push(trayectoria);
-            verticesRepetidos[vertice1 - 1] = 0;
+            verticesRepetidos[vertice1-1]=0;
             //console.log(trayectoriasTotales[trayectoriasTotales.length-1]);
             return;
         }
-        for (let j = 1; j <= this.numeroLados(); j++) {
-            if (this.inci[vertice1][j] != 1) {
-                for (let i = 1; i <= this.numeroVertices(); i++) {
-                    if (this.inci[i][j] != -1) {
-                        if (!verticesRepetidos[i - 1]) {
-                            trayectoria.push(i);
-                            this.calcularTrayectorias(i, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria);
-                            trayectoria.pop();
+
+        for(let j=1; j<=this.numeroLados(); j++){
+            if(this.inci[vertice1][j]!=1){
+                for(let i=1; i<=this.numeroVertices(); i++){
+                    if(this.inci[i][j]!=-1){
+                        if(!verticesRepetidos[i-1]){
+                          trayectoria.push(i);
+                          this.calcularTrayectorias(i, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria);
+                          trayectoria.pop();
                         }
                     }
                 }
             }
         }
     }
-    trayectoriaSimple(trayectorias) {
-        let simple = 1;
-        for (let i = 0; i < trayectorias.length; i++) {
-            for (let j = 1; j <= trayectorias[i][0]; j++) {
-                let x = trayectorias[i][j];
-                if (trayectorias[i].indexOf(x) != trayectorias[i].lastIndexOf(x))
-                    simple = 0;
+
+    private trayectoriaSimple(trayectorias:number[][]):void{
+        let simple=1;
+        for(let i=0; i<trayectorias.length; i++){
+            for(let j=1; j<=trayectorias[i][0]; j++){
+                let x=trayectorias[i][j];
+                if(trayectorias[i].indexOf(x)!= trayectorias[i].lastIndexOf(x))simple=0;
             }
             trayectorias[i].push(simple);
         }
-    }
+    }*/
     /**
      * Determina si son adyacentes dos vertices ingresados como parametros
      * retorna true si son adyacentes, false de lo contrario
@@ -130,6 +129,11 @@ class Grafo {
         //to do : metodo para validar si el grafo es fuertemente conectado
         return respuesta;
     }
+    /**
+     * calcula el grado saliente de un vertice que recibe como parametro
+     * @param vertice vertice para el cual se que calculará el grado saiente
+     * @returns numero que representa el grado saliente del vertice
+     */
     gradoEntrante(vertice) {
         let grado = 0;
         for (let i = 1; i <= this.numeroLados(); i++) {
@@ -139,6 +143,11 @@ class Grafo {
         }
         return grado;
     }
+    /**
+     * calcula el grado saliente de un vertice que recibe como parametro
+     * @param vertice vertice para el cual se calculará el grado saliente
+     * @returns numero que representa el grado saliente del vertice
+     */
     gradoSaliente(vertice) {
         let grado = 0;
         for (let i = 1; i <= this.numeroLados(); i++) {
@@ -148,6 +157,11 @@ class Grafo {
         }
         return grado;
     }
+    /**
+     * Calcula el recorrido BFS en el grafo
+     * @returns arreglo de numeros en los que cada indice representa el vertice
+     * por el que se pasará en el recorrido
+     */
     BFS() {
         let recorrido = [];
         let cola = [];
@@ -191,6 +205,11 @@ class Grafo {
             }
         }
     }
+    /**
+     * Calcula el recorrido DFS en el grafo
+     * @returns arreglo de numeros en el que cada indice representa cada vertice
+     * por el que se pasará en el recorrido
+     */
     DFS() {
         let vertice = 3;
         let visitado = Array(this.numeroVertices()).fill(0);
