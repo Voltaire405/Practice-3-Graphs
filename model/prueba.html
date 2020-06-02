@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Grafo.js"></script>
+</head>
+<body>
+
+    <script>
+        let inci=[
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 0, 0, 0, 0],
+        [0,-1, 0,-1,-1, 0, 0],
+        [0, 0, 0, 0, 1,-1, 0],
+        [0, 0,-1, 1, 0, 1, 2]];
+        
+        grafo= new Grafo(inci);
+        //document.write(inci==grafo.getInci());
+        //document.write("vertices: " +grafo.numeroVertices());
+        //document.write("lados: " +grafo.numeroLados());
+        inci=grafo.getInci();
+        for(let i=0; i<inci.length; i++){
+            document.write(inci[i] + "<br>");
+
+        }
+
+        let trayectorias=grafo.trayectorias(1,2);
+        j=1;
+        for(i in  trayectorias){
+            console.log("trayectoria "+ j+ ": "+ trayectorias[i]);
+            j++
+        }
+
+    </script>
+</body>
+</html>
