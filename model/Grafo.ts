@@ -22,18 +22,17 @@ class Grafo{
         return lados;
     }
 
-    
-
-
     /**
-     * Devuelve un arreglo de arreglos en el que cada arreglo en la 
-     * primera posición tiene la longitud de la trayectoria n. 
-     * en las siguientes n posiciones tiene los vertices por los que pasa la 
-     * trayectoria, en la siguiente posición un 1 o 0 dependiendo de si es una
-     * trayectoria simple y en la ultima posición un 1 o 0 dependiendo de si 
-     * tiene ciclo 
-     * @param vertice1 
-     * @param vertice2 
+     * Devuelve un arreglo de arreglos. Cada arreglo es una trayectoria.
+     * Para cada arreglo la primera posición representa la longitud de la trayectoria n. 
+     * Las siguientes n posiciones representan los vertices por los que pasa la 
+     * trayectoria.
+     * En la siguiente posición se indica si es una trayectoria simple con un 1 o 0 
+     * En la ultima posición se indica si es una trayectoria con ciclo con un 1 o 0
+     * @param vertice1 entero que indica el vertice desde donde incia la trayectoria
+     * @param vertice2 entero que indica el vertice donde termina la trayectoria
+     * @returns retorna el arreglo de arreglos con las diferentes trayectorias y la información
+     * de estas
      */
     public trayectorias(vertice1: number, vertice2:number):number[][]{
         let trayectoriasTotales:number[][]=[];
@@ -44,36 +43,44 @@ class Grafo{
         this.calcularTrayectorias(vertice1, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria);
 
 
-        /*for(let i=0; i<trayectoriasTotales.length; i++){
+        for(let i=0; i<trayectoriasTotales.length; i++){
+            this.trayectoriaSimple(trayectoriasTotales[i]);
+            this.longitud(trayectoriasTotales[i]);
+            this.ciclo(trayectoriasTotales[i]);
+        }
 
-            let n=trayectoriasTotales[i].length;
-            trayectoriasTotales[i].unshift(n);
-            //this.trayectoriaSimple(trayectoriasTotales);
-        }*/
-        
-        //console.log(trayectoriasTotales);
         return trayectoriasTotales;
-        
     }
 
+    /**
+     * Calcula las diferentes trayectorias entre dos vertices
+     * @param vertice1 vertice de inicio de la trayectoria
+     * @param vertice2 vertide de llegada de la trayectoria
+     * @param trayectoriasTotales arreglo de arreglos que contiene todas las trayectorias
+     * @param verticesRepetidos contiene los indices de los vertices repetidos
+     * @param trayectoria arreglo que se usa para guardar los vertices de cada trayectoria 
+     * durante su construcción
+     */
     private calcularTrayectorias(vertice1:number, vertice2:number, trayectoriasTotales: number[][],
         verticesRepetidos:number[], trayectoria:number[]):void{
         
         verticesRepetidos[vertice1-1]=1;
 
         if(vertice1==vertice2){
-            console.log(trayectoria)
-            trayectoriasTotales.push(trayectoria);
-
+            let t=[]
+            for(let i=0; i<trayectoria.length; i++){
+                t.push(trayectoria[i]);
+            }
+            if(t.length!=1)trayectoriasTotales.push(t);
             trayectoria.pop();
             verticesRepetidos[vertice1-1]=0
             return;
         }
 
         for(let j=1; j<=this.numeroLados(); j++){
-            if(this.inci[vertice1][j]!=1){
+            if(this.inci[vertice1][j]==1){
                 for(let i=1; i<=this.numeroVertices(); i++){
-                    if(this.inci[i][j]!=-1){
+                    if(this.inci[i][j]==-1){
                         if(!verticesRepetidos[i-1]){
                           trayectoria.push(i);
                           this.calcularTrayectorias(i, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria);
@@ -85,46 +92,56 @@ class Grafo{
         }
     }
 
-    /*
+    /**
+     * Calcula la longitud de una trayectoria que es ingresda como parametro
+     * @param trayectoria arreglo que contiene los vertices de una trayectoria
+     */
+    private longitud(trayectoria:number[]):void{
+        let n=trayectoria.length-1;
+        trayectoria.unshift(n);
+    }
     
-    private _calcularTrayectorias(vertice1:number, vertice2:number, trayectoriasTotales: number[][],
-        verticesRepetidos:number[], trayectoria:number[]):void{
-        
-        verticesRepetidos[vertice1-1]=1;
-
-        if(vertice1==vertice2){
-            console.log(trayectoria);
-            trayectoriasTotales.push(trayectoria);
-            verticesRepetidos[vertice1-1]=0;
-            //console.log(trayectoriasTotales[trayectoriasTotales.length-1]);
-            return;
+    /**
+     * Determina si una trayectoria tiene ciclo
+     * @param trayectoria arreglo que contiene los vertices de una trayectoria
+     */
+    private ciclo(trayectoria:number[]):void{
+        let ciclo=0;
+        let n=trayectoria[0];
+        if(trayectoria[n+1]){
+            if(trayectoria[1]==trayectoria[n])ciclo=1;
         }
+        trayectoria.push(ciclo);
+    }
 
-        for(let j=1; j<=this.numeroLados(); j++){
-            if(this.inci[vertice1][j]!=1){
-                for(let i=1; i<=this.numeroVertices(); i++){
-                    if(this.inci[i][j]!=-1){
-                        if(!verticesRepetidos[i-1]){
-                          trayectoria.push(i);
-                          this.calcularTrayectorias(i, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria);
-                          trayectoria.pop();
-                        }
-                    }
+    /**
+     * Determina si una trayectoria es simple
+     * @param trayectoria arreglo que contiene los vertices de una trayectoria
+     */
+    private trayectoriaSimple(trayectoria:number[]):void{
+        let simple=1;
+        for(let i=1; i<trayectoria.length; i++){
+            let k=trayectoria[i];
+            if(trayectoria.indexOf(k)!= trayectoria.lastIndexOf(k))simple=0;
+        }
+        trayectoria.push(simple);
+    }
+
+    /**
+     * Determina si un grafo esta fuertemente conectado
+     * @returns booleano que indica si el grafo es fuertemente conectado
+     */
+    public EsConectado():boolean{
+        let conectado=true;
+        for(let i=1; i<=this.numeroVertices(); i++){
+            for(let j=1; j<=this.numeroVertices(); j++){
+                if(i!=j){
+                    if(this.trayectorias(i, j).length==0)conectado=false;
                 }
             }
         }
+        return conectado;
     }
-
-    private trayectoriaSimple(trayectorias:number[][]):void{
-        let simple=1;
-        for(let i=0; i<trayectorias.length; i++){
-            for(let j=1; j<=trayectorias[i][0]; j++){
-                let x=trayectorias[i][j];
-                if(trayectorias[i].indexOf(x)!= trayectorias[i].lastIndexOf(x))simple=0;
-            }
-            trayectorias[i].push(simple);
-        }
-    }*/
 
     /**
      * Determina si son adyacentes dos vertices ingresados como parametros
@@ -145,13 +162,6 @@ class Grafo{
         }
 
         return adyacentes;
-    }
-
-    public fuertementeConectado():boolean{
-        let respuesta:boolean=false;
-        //to do : metodo para validar si el grafo es fuertemente conectado
-
-        return respuesta;
     }
 
     /**
@@ -194,7 +204,7 @@ class Grafo{
     public BFS():number[]{
         let recorrido:number[]=[];
         let cola=[];
-        let vertice=3;
+        let vertice=1;
         let visitado= Array<number>(this.numeroVertices()).fill(0);
 
         visitado[vertice-1]=1;
@@ -221,6 +231,12 @@ class Grafo{
         return recorrido;
     }
 
+    /**
+     * Construye el recorrido DFS dentro del grafo
+     * @param vertice vertice de inicio del recorrido
+     * @param visitado arreglo que contiene los vertices visitados dentro del recorrido
+     * @param recorrido arreglo que se usa para construir el recorrido
+     */
     private recorridoDFS(vertice:number, visitado:number[], recorrido:number[]):void{
         visitado[vertice-1]=1;
         recorrido.push(vertice);
@@ -240,17 +256,16 @@ class Grafo{
     }
 
     /**
-     * Calcula el recorrido DFS en el grafo
-     * @returns arreglo de numeros en el que cada indice representa cada vertice
+     * Determina el recorrido DFS en el grafo
+     * @returns arreglo de  en el que cada indice representa cada vertice
      * por el que se pasará en el recorrido
      */
     public DFS():number[]{
-        let vertice=3;
+        let vertice=1;
         let visitado= Array<number>(this.numeroVertices()).fill(0);
         let recorrido:number[]=[];
         this.recorridoDFS(vertice, visitado, recorrido);
     
         return recorrido;
     }
-
 }

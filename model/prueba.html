@@ -30,6 +30,8 @@
         let trayectorias=grafo.trayectorias(1,2);
         console.log("trayectorias en prueba: ");
         console.log(trayectorias);
+
+        console.log("conectado: " + grafo.EsConectado());
         /*
         j=1;
         for(i in  trayectorias){
@@ -42,12 +44,15 @@
         arreglo.push(arreglo1);
         console.log(arreglo);*/
 
-        /*
+        
         bfs=grafo.BFS();
         console.log("recorrido bfs: "+ bfs);
         let dfs=grafo.DFS();
-        console.log("recorrido dfs: "+ dfs);*/
+        console.log("recorrido dfs: "+ dfs);
 
+        i=2
+        console.log("grado saliente "+ i+ ": "+ grafo.gradoSaliente(i));
+        console.log("grado entrante "+ i+ ": "+ grafo.gradoEntrante(i));
 
     </script>
 </body>
