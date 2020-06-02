@@ -22,70 +22,59 @@ class Grafo{
         return lados;
     }
 
-    /*
-    public _trayectorias(vertice1: number, vertice2:number):void{
-        let trayectoriasTotales:number[][]=[];
-        let verticesRepetidos= Array<number>(this.numeroVertices()).fill(0);
-        let trayectoriasParciales=this.calcularTrayectorias(vertice1, vertice2, trayectoriasTotales, verticesRepetidos);
-        
-    }
-
-    private _calcularTrayectorias(vertice1:number, vertice2:number, trayectoriasTotales: number[][],
-        verticesRepetidos:number[]):number[][]{
-        if(verticesRepetidos[vertice1]<2){
-            trayectoriasTotales.push([vertice1]);
-            for(let j=1; j<=this.numeroLados(); j++){
-                if(this.inci[vertice1][j]!=0){
-                    //trayectorias=this.calcularTrayectorias(vertice1);
-                }
-                switch(this.inci[vertice1][j]){
-                    case 1:
-                        let trayectoria=[];
-                        let i=1;
-                        for(; i<this.numeroVertices(); i++){
-                            if(this.inci[i][j]==-1)break;
-                        }
-                        if(i==vertice2)
-                        break;
-                }
     
-            }
 
-        }
-        
 
-        let trayectorias:number[][]=trayectoriasTotales;
-        return trayectorias;
-    }
-    */
-
+    /**
+     * Devuelve un arreglo de arreglos en el que cada arreglo en la 
+     * primera posición tiene la longitud de la trayectoria n. 
+     * en las siguientes n posiciones tiene los vertices por los que pasa la 
+     * trayectoria, en la siguiente posición un 1 o 0 dependiendo de si es una
+     * trayectoria simple y en la ultima posición un 1 o 0 dependiendo de si 
+     * tiene ciclo 
+     * @param vertice1 
+     * @param vertice2 
+     */
     public trayectorias(vertice1: number, vertice2:number):number[][]{
         let trayectoriasTotales:number[][]=[];
         let verticesRepetidos= Array<number>(this.numeroVertices()).fill(0);
         let trayectoria:number[]=[];
-        trayectoriasTotales=this.calcularTrayectorias(vertice1, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria);
 
+        trayectoria.push(vertice1);
+        this.calcularTrayectorias(vertice1, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria);
+
+
+        /*for(let i=0; i<trayectoriasTotales.length; i++){
+
+            let n=trayectoriasTotales[i].length;
+            trayectoriasTotales[i].unshift(n);
+            //this.trayectoriaSimple(trayectoriasTotales);
+        }*/
+        
+        //console.log(trayectoriasTotales);
         return trayectoriasTotales;
         
     }
 
     private calcularTrayectorias(vertice1:number, vertice2:number, trayectoriasTotales: number[][],
-        verticesRepetidos:number[], trayectoria:number[]):number[][]{
+        verticesRepetidos:number[], trayectoria:number[]):void{
         
-        verticesRepetidos[vertice1]=1;
+        verticesRepetidos[vertice1-1]=1;
 
         if(vertice1==vertice2){
+            trayectoria.push(vertice1);
             trayectoriasTotales.push(trayectoria);
-            verticesRepetidos[vertice1]=0;
-            console.log(trayectoria);
-            return trayectoriasTotales
+
+            trayectoria.pop();
+            verticesRepetidos[vertice1-1]=0
+            return;
         }
 
         for(let j=1; j<=this.numeroLados(); j++){
             if(this.inci[vertice1][j]!=1){
                 for(let i=1; i<=this.numeroVertices(); i++){
-                    if(this.inci[i][j]!=0){
-                        if(!verticesRepetidos[i]){
+                    if(this.inci[i][j]!=-1){
+                        if(!verticesRepetidos[i-1]){
                           trayectoria.push(i);
                           this.calcularTrayectorias(i, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria);
                           trayectoria.pop();
@@ -95,8 +84,53 @@ class Grafo{
             }
         }
 
-        //verticesRepetidos[vertice1]=0;
-        return trayectoriasTotales;
+    
+    }
+
+    /**
+     * @param vertice1 
+     * @param vertice2 
+     * @param trayectoriasTotales 
+     * @param verticesRepetidos 
+     * @param trayectoria 
+     */
+    private _calcularTrayectorias(vertice1:number, vertice2:number, trayectoriasTotales: number[][],
+        verticesRepetidos:number[], trayectoria:number[]):void{
+        
+        verticesRepetidos[vertice1-1]=1;
+
+        if(vertice1==vertice2){
+            console.log(trayectoria);
+            trayectoriasTotales.push(trayectoria);
+            verticesRepetidos[vertice1-1]=0;
+            //console.log(trayectoriasTotales[trayectoriasTotales.length-1]);
+            return;
+        }
+
+        for(let j=1; j<=this.numeroLados(); j++){
+            if(this.inci[vertice1][j]!=1){
+                for(let i=1; i<=this.numeroVertices(); i++){
+                    if(this.inci[i][j]!=-1){
+                        if(!verticesRepetidos[i-1]){
+                          trayectoria.push(i);
+                          this.calcularTrayectorias(i, vertice2, trayectoriasTotales, verticesRepetidos, trayectoria);
+                          trayectoria.pop();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private trayectoriaSimple(trayectorias:number[][]):void{
+        let simple=1;
+        for(let i=0; i<trayectorias.length; i++){
+            for(let j=1; j<=trayectorias[i][0]; j++){
+                let x=trayectorias[i][j];
+                if(trayectorias[i].indexOf(x)!= trayectorias[i].lastIndexOf(x))simple=0;
+            }
+            trayectorias[i].push(simple);
+        }
     }
 
     /**
@@ -149,21 +183,59 @@ class Grafo{
         return grado;
     }
 
-    public BFS(vertice:number):number[]{
-        let visitado= Array<number>(this.numeroVertices()).fill(0);
+    public BFS():number[]{
         let recorrido:number[]=[];
-        while(recorrido.length!=0){
-            
-        }
-        //to do: crear recorrido
+        let cola=[];
+        let vertice=3;
+        let visitado= Array<number>(this.numeroVertices()).fill(0);
 
+        visitado[vertice-1]=1;
+        cola.push(vertice);
+        let n=cola.length;
+        while(n!=0){
+            vertice=cola[0];
+            recorrido.push(vertice);
+            cola.shift();
+            for(let j=1; j<=this.numeroLados(); j++){
+                if(this.inci[vertice][j]!=0){
+                    for(let i=1; i<=this.numeroVertices(); i++){
+                        if(this.inci[i][j]!=0 && i!=vertice){
+                            if(visitado[i-1]==0){
+                                visitado[i-1]=1;
+                                cola.push(i);
+                            }
+                        }
+                    }
+                }
+            }
+            n=cola.length;
+        }
         return recorrido;
     }
 
-    public DFS(vertice:number):number[]{
-        let recorrido:number[]=[];
-        //to do: crear recorrido
+    private recorridoDFS(vertice:number, visitado:number[], recorrido:number[]):void{
+        visitado[vertice-1]=1;
+        recorrido.push(vertice);
 
+        for(let j=1; j<=this.numeroLados(); j++){
+            if(this.inci[vertice][j]!=0){
+                for(let i=1; i<=this.numeroVertices(); i++){
+                    if(this.inci[i][j]!=0 && i!=vertice){
+                        if(visitado[i-1]==0){
+                            this.recorridoDFS(i, visitado, recorrido);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    public DFS():number[]{
+        let vertice=3;
+        let visitado= Array<number>(this.numeroVertices()).fill(0);
+        let recorrido:number[]=[];
+        this.recorridoDFS(vertice, visitado, recorrido);
+    
         return recorrido;
     }
 
