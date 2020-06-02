@@ -150,7 +150,11 @@ class Grafo{
     }
 
     public BFS(vertice:number):number[]{
+        let visitado= Array<number>(this.numeroVertices()).fill(0);
         let recorrido:number[]=[];
+        while(recorrido.length!=0){
+            
+        }
         //to do: crear recorrido
 
         return recorrido;

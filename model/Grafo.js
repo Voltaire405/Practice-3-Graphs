@@ -127,7 +127,10 @@ class Grafo {
         return grado;
     }
     BFS(vertice) {
+        let visitado = Array(this.numeroVertices()).fill(0);
         let recorrido = [];
+        while (recorrido.length != 0) {
+        }
         //to do: crear recorrido
         return recorrido;
     }
