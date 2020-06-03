@@ -362,9 +362,10 @@
                 </div><br>
                 <form id="one-house">
                     <label for="house">Ingrese una casa: </label>
-                    <input type="text" name="house" id="house">
+                    <input type="number" id="house" min="0">
                     <button type="submit" class="btn btn-sm btn-primary" id="send-onehouse">Enviar</button>
                 </form>
+                <p id="grade"><!--grado de de entrada y salida--></p>
                 <br>
                 <form id="two-houses">
                     <label for="1-house">Casa 1: </label>
@@ -373,6 +374,7 @@
                     <input type="text" name="2-house" id="2-house">
                     <button type="submit" class="btn btn-sm btn-primary" id="send-twohouses">Enviar</button>
                 </form>
+                <p id=">lenght"></p>
                 <br>
                 <button id="btn-clean" class="btn btn-danger btn-sm">Limpiar</button>
 
@@ -386,6 +388,7 @@
     </section>
 
     <script src="vendor/js/functions.js"></script>
+    <script src="model/Grafo.js"></script>
     <script src="controller/mainController.js"></script>
 </body>
 
