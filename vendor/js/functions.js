@@ -38,7 +38,6 @@ function generateRandomSides(vertexNumber) {
  */
 function getIncidenceMatrix(sidesArray, vertexNumber) {
     let inciMat = new Array(vertexNumber + 1);
-    console.log("numero de lados: " + sidesArray.length);
     //Construye matriz de ceros
     for (let index = 0; index < inciMat.length; index++) {
         inciMat[index] = new Array().zeros(sidesArray.length - 1);
@@ -61,8 +60,7 @@ function getIncidenceMatrix(sidesArray, vertexNumber) {
             inciMat[sides[side][1]][side] = -1;
         }
     }
-    console.log(sidesArray);
-    console.log(inciMat);
+
     return inciMat;
 }
 
@@ -225,4 +223,20 @@ function getRandom(top) {
     } while (random1 == 0 || random2 == 0);
     tuple = [random1, random2];
     return tuple;
+}
+
+function translatePath(path,v1, v2){
+    let str, strArray = new Array(path.length), specPath;
+    for (let p = 0; p < path.length; p++) {
+        specPath = path[p];
+        str = "La trayectoria " + p +  " desde " + v1 + " hasta " + v2 + " tiene longitud " + specPath[0] + ", pasa por los vértices: ";
+        for (let v = 1; v < specPath.length-2; v++) {
+            str += specPath[v] + "; ";            
+        }
+
+        str += specPath[specPath.length - 2]==1?"Es simple,": " No es simple,";
+        str += specPath[specPath.length - 1]==1?"Tiene ciclo.": " No tiene ciclo.";
+        strArray[p] = str;
+    }   
+    return strArray;    
 }

@@ -362,20 +362,26 @@
                 </div><br>
                 <form id="one-house">
                     <label for="house">Ingrese una casa: </label>
-                    <input type="number" id="house" min="0">
-                    <button type="submit" class="btn btn-sm btn-primary" id="send-onehouse">Enviar</button>
+                    <input type="number" id="house" min="1">
+                    <button type="submit" class="btn btn-sm btn-primary" id="send-onehouse" >Enviar</button>
                 </form>
                 <p id="grade"><!--grado de de entrada y salida--></p>
                 <br>
                 <form id="two-houses">
                     <label for="1-house">Casa 1: </label>
-                    <input type="text" name="1-house" id="1-house"><br>
+                    <input type="number" name="1-house" id="1-house" min="1"><br>
                     <label for="2-house">Casa 2: </label>
-                    <input type="text" name="2-house" id="2-house">
-                    <button type="submit" class="btn btn-sm btn-primary" id="send-twohouses">Enviar</button>
+                    <input type="number" id="2-house" min="1">
+                    <button type="submit" class="btn btn-sm btn-primary" id="send-twohouses" >Enviar</button>
                 </form>
-                <p id=">lenght"></p>
                 <br>
+
+                <div id="neighborhood"></div>
+                <div id="going"></div>
+                <div id="back"></div>
+                <div id="bfs"></div>
+                <div id="dfs"></div>
+                <hr>
                 <button id="btn-clean" class="btn btn-danger btn-sm">Limpiar</button>
 
             </div>
